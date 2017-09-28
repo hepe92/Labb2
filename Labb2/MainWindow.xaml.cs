@@ -20,9 +20,26 @@ namespace Labb2
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+
+        private void AnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            Answer a = new Answer();
+            string awn = (NameTextBox.Text+ ": " + a.AList());
+            ReturnAnswer.Content = NameTextBox.Text + "\n" + a.AList();
+
+            HistoryListBox.Items.Add(awn);
+        }
+
+        private void HistoryListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

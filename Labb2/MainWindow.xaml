@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Labb2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="8-BALL" Height="350" Width="525">
+    <Grid Background="Black">
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="34" Margin="192,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="18" FontWeight="Bold"/>
+        <Label Content="      What's your name?" HorizontalAlignment="Left" Margin="192,133,0,0" VerticalAlignment="Top" Width="140" FontFamily="Papyrus" Background="Black" Foreground="White"/>
+        <Button x:Name="AnswerButton" Content="Answer" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="192,225,0,0" Height="57" Foreground="White" FontFamily="Papyrus" Click="AnswerButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF595252" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image Margin="353,162,25.4,41.8" Source="Image1.png" Stretch="Fill"/>
+        <Label Content="What lies in your future?" HorizontalAlignment="Left" Margin="192,196,0,0" VerticalAlignment="Top" Width="140" FontFamily="Papyrus" Background="Black" Foreground="White"/>
+        <Label x:Name="ReturnAnswer" Content="                Ask the 8-ball" HorizontalAlignment="Left" Margin="126,52,0,0" VerticalAlignment="Top" Height="76" Width="286" Foreground="White" FontSize="20" FontWeight="Bold" FontFamily="Papyrus"/>
+        <ListBox x:Name="HistoryListBox" HorizontalAlignment="Left" Height="101" VerticalAlignment="Top" Width="167" Margin="10,181,0,0" SelectionChanged="HistoryListBox_SelectionChanged"/>
+
     </Grid>
 </Window>
