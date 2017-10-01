@@ -27,17 +27,30 @@ namespace Labb2
 
         }
 
-
         private void AnswerButton_Click(object sender, RoutedEventArgs e)
         {
             Answer a = new Answer();
-            string awn = (NameTextBox.Text+ ": " + a.AList());
-            ReturnAnswer.Content = NameTextBox.Text + "\n" + a.AList();
+            string answerText;
 
-            HistoryListBox.Items.Add(awn);
+            if (CheatBox.IsChecked == true)
+            {
+                answerText = a.CheatRandGen().ToString();          
+            }
+            else
+            {
+                answerText = a.RandGen().ToString();
+            }
+
+            ReturnAnswer.Content = NameTextBox.Text + "\n" + answerText;
+            HistoryListBox.Items.Add(NameTextBox.Text + "\n" + answerText);
         }
 
         private void HistoryListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 
         }

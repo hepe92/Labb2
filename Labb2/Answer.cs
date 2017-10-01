@@ -6,39 +6,57 @@ using System.Threading.Tasks;
 
 namespace Labb2
 {
-    class Answer
+    public class Answer
     {
-        
-        public string AList()
+        private List<ListConfig> answerList;
+
+        public Answer()
         {
-            //List<string> awnserList = new List<string>();
-            List<string> answerList;
-            answerList = new List<string>();
+            answerList = new List<ListConfig>();
 
-            answerList.Add("Yes");
-            answerList.Add("No!");
-            answerList.Add("Sure!");
-            answerList.Add("Are you crazy?");
-            answerList.Add("Of course not!");
-            answerList.Add("Most probably...");
-            answerList.Add("Are you insane?!");
-            answerList.Add("Of course!");
-            answerList.Add("I think so...");
-            answerList.Add("Maybe yes...");
-            answerList.Add("Maybe no...");
-            answerList.Add("I'm not sure...");
-            answerList.Add("How should I know?!");
-            answerList.Add("Duh! Of course!");
-            answerList.Add("Are you mad?! Of course not!");
-            answerList.Add("Maybe....");
-            answerList.Add("Don't ask me!");
+            answerList.Add(new ListConfig("Yes", true));
+            answerList.Add(new ListConfig("No!", false));
+            answerList.Add(new ListConfig("Sure!", true));
+            answerList.Add(new ListConfig("Are you crazy?", false));
+            answerList.Add(new ListConfig("Of course not!", false));
+            answerList.Add(new ListConfig("Most probably...", true));
+            answerList.Add(new ListConfig("Are you insane?!", false));
+            answerList.Add(new ListConfig("Of course!", true));
+            answerList.Add(new ListConfig("I think so...", true));
+            answerList.Add(new ListConfig("Maybe yes...", true));
+            answerList.Add(new ListConfig("Maybe no...", false));
+            answerList.Add(new ListConfig("I'm not sure...", false));
+            answerList.Add(new ListConfig("How should I know?!", false));
+            answerList.Add(new ListConfig("Duh! Of course!", true));
+            answerList.Add(new ListConfig("Are you mad?! Of course not!", false));
+            answerList.Add(new ListConfig("Maybe....", true));
+            answerList.Add(new ListConfig("Don't ask me!", false));
+        }
+        public ListConfig CheatRandGen()
+        {
+            Random randomNumber = new Random();
+            bool isPositiveAnswer = false;
+            ListConfig randomAnswer = new ListConfig("",false);
 
+            while (isPositiveAnswer == false)
+            {
+                int randomPosition = randomNumber.Next(answerList.Count);
+                randomAnswer = answerList[randomPosition];
+
+                isPositiveAnswer = randomAnswer.Yn;
+            }
+            return randomAnswer;
+        }
+    
+        public ListConfig RandGen()
+        {
             Random randomNumber = new Random();
             int randomPosition = randomNumber.Next(answerList.Count);
 
-            string randomAwnser = answerList[randomPosition];
-            return randomAwnser;
+            ListConfig randomAnswer;
+            randomAnswer = answerList[randomPosition];
 
+            return randomAnswer;
         }
         
     }
